@@ -9,7 +9,7 @@
 #import "FlickrPhotoTVC.h"
 #import "FlickrFetcher.h"
 
-@interface FlickrPhotoTVC ()
+@interface FlickrPhotoTVC () <UISplitViewControllerDelegate>
 
 @end
 
@@ -20,6 +20,22 @@
     _photos = photos;
     [self.tableView reloadData];
 }
+
+- (void)awakeFromNib
+{
+    self.splitViewController.delegate = self;
+}
+
+#pragma mark - Split view delegate
+
+- (BOOL)splitViewController:(UISplitViewController *)svc
+   shouldHideViewController:(UIViewController *)vc
+              inOrientation:(UIInterfaceOrientation)orientation
+{
+    return NO;
+}
+
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

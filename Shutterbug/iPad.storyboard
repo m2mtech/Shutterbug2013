@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="KQK-Dx-KIj">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Split View Controller-->
+        <scene sceneID="SOS-kQ-1Hj">
+            <objects>
+                <splitViewController id="KQK-Dx-KIj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <connections>
+                        <segue destination="erL-E9-WyL" kind="relationship" relationship="masterViewController" id="AjT-4S-Wc5"/>
+                        <segue destination="8ee-QU-sTb" kind="relationship" relationship="detailViewController" id="Gzp-YI-Uuf"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6f-Yv-VHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="-5"/>
+        </scene>
+        <!--Latest Flickr PhotoTVC - Shutterbug-->
+        <scene sceneID="JHp-yl-roW">
+            <objects>
+                <tableViewController id="pnn-RL-Ql4" customClass="LatestFlickrPhotoTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tc4-qo-fCP">
+                        <rect key="frame" x="0.0" y="64" width="320" height="788"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="gzj-uT-kPb" detailTextLabel="5Na-cu-GYW" style="IBUITableViewCellStyleSubtitle" id="1J1-4h-8Xt">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gzj-uT-kPb">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Na-cu-GYW">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="8ee-QU-sTb" kind="replace" identifier="Show Image" splitViewControllerTargetIndex="1" id="TcP-cr-9XS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pnn-RL-Ql4" id="eIL-A2-9gr"/>
+                            <outlet property="delegate" destination="pnn-RL-Ql4" id="xaf-ko-PcJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Shutterbug" id="IBT-a7-UFd"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOE-9i-LWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="-406"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="N9L-EZ-9aB">
+            <objects>
+                <viewController id="8ee-QU-sTb" customClass="ImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kfL-0h-C1x">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yF1-MD-5Zt"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFd-HT-wA1">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jbP-X2-2o6"/>
+                                    <barButtonItem title="Item" style="plain" id="3PX-Gb-BaY"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sy8-QF-ZiF"/>
+                                    <barButtonItem title="Show URL" id="xLK-1X-bz7">
+                                        <connections>
+                                            <segue destination="dWh-az-uir" kind="popover" identifier="Show URL" popoverAnchorBarButtonItem="xLK-1X-bz7" id="mbb-nQ-1Xd">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yF1-MD-5Zt" firstAttribute="top" secondItem="JFd-HT-wA1" secondAttribute="bottom" type="default" id="2El-0W-tYc"/>
+                            <constraint firstItem="JFd-HT-wA1" firstAttribute="leading" secondItem="kfL-0h-C1x" secondAttribute="leading" type="default" id="9fR-Sb-Ste"/>
+                            <constraint firstItem="yF1-MD-5Zt" firstAttribute="leading" secondItem="kfL-0h-C1x" secondAttribute="leading" type="default" id="dOy-cj-1tW"/>
+                            <constraint firstItem="JFd-HT-wA1" firstAttribute="top" secondItem="kfL-0h-C1x" secondAttribute="top" type="default" id="pWr-R9-ebf"/>
+                            <constraint firstItem="yF1-MD-5Zt" firstAttribute="trailing" secondItem="kfL-0h-C1x" secondAttribute="trailing" type="default" id="q3d-OV-Psj"/>
+                            <constraint firstItem="yF1-MD-5Zt" firstAttribute="bottom" secondItem="kfL-0h-C1x" secondAttribute="bottom" type="default" id="q7t-jh-f0p"/>
+                            <constraint firstItem="JFd-HT-wA1" firstAttribute="trailing" secondItem="kfL-0h-C1x" secondAttribute="trailing" type="default" id="sKh-D5-Mn0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z2O-Zb-fkC"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="scrollView" destination="yF1-MD-5Zt" id="v10-a9-mgp"/>
+                        <outlet property="titleBarButtonItem" destination="3PX-Gb-BaY" id="CJw-nz-S1z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XPP-kO-kbp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="316"/>
+        </scene>
+        <!--Attributed String View Controller-->
+        <scene sceneID="Wcn-A2-IH5">
+            <objects>
+                <viewController id="dWh-az-uir" customClass="AttributedStringViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qwk-MM-JDL">
+                        <rect key="frame" x="0.0" y="20" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Db8-Pf-cJS">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Attributed String">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Db8-Pf-cJS" firstAttribute="leading" secondItem="Qwk-MM-JDL" secondAttribute="leading" type="default" id="8i7-xd-1JE"/>
+                            <constraint firstItem="Db8-Pf-cJS" firstAttribute="trailing" secondItem="Qwk-MM-JDL" secondAttribute="trailing" type="default" id="asG-u7-pZF"/>
+                            <constraint firstItem="Db8-Pf-cJS" firstAttribute="bottom" secondItem="Qwk-MM-JDL" secondAttribute="bottom" type="default" id="d0e-up-dJZ"/>
+                            <constraint firstItem="Db8-Pf-cJS" firstAttribute="top" secondItem="Qwk-MM-JDL" secondAttribute="top" type="default" id="f6o-zV-iq3"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="textView" destination="Db8-Pf-cJS" id="6Fo-EE-SdU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vku-hp-OuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2953" y="316"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mEz-tn-nEW">
+            <objects>
+                <navigationController id="erL-E9-WyL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="30d-55-W2v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pnn-RL-Ql4" kind="relationship" relationship="rootViewController" id="n6L-oS-a8e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SAL-hL-d75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="793" y="-406"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="AttributedStringViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AttributedStringViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="FlickrPhotoTVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoTVC.h"/>
+        </class>
+        <class className="ImageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titleBarButtonItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="LatestFlickrPhotoTVC" superclassName="FlickrPhotoTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LatestFlickrPhotoTVC.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="TcP-cr-9XS"/>
+    </inferredMetricsTieBreakers>
+</document>
