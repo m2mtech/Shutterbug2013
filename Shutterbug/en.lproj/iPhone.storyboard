@@ -44,6 +44,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shutterbug" id="tZM-T2-tzN"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="L4o-Fe-U5Q">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o09-Ds-DIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,19 +60,23 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fK5-rE-HhQ"/>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hv-sU-d1w"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8hv-sU-d1w" firstAttribute="top" secondItem="wn8-lg-Pct" secondAttribute="top" type="default" id="Ao1-iD-aJg"/>
                             <constraint firstItem="8hv-sU-d1w" firstAttribute="leading" secondItem="wn8-lg-Pct" secondAttribute="leading" type="default" id="DfL-m4-gfp"/>
+                            <constraint firstItem="fK5-rE-HhQ" firstAttribute="centerY" secondItem="8hv-sU-d1w" secondAttribute="centerY" type="default" id="IbF-xn-5wY"/>
                             <constraint firstItem="8hv-sU-d1w" firstAttribute="trailing" secondItem="wn8-lg-Pct" secondAttribute="trailing" type="default" id="nrD-ES-LNO"/>
                             <constraint firstItem="8hv-sU-d1w" firstAttribute="bottom" secondItem="wn8-lg-Pct" secondAttribute="bottom" type="default" id="rRl-DP-z8T"/>
+                            <constraint firstItem="fK5-rE-HhQ" firstAttribute="centerX" secondItem="8hv-sU-d1w" secondAttribute="centerX" type="default" id="zdt-XU-a6F"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7yp-3w-bg4"/>
                     <connections>
                         <outlet property="scrollView" destination="8hv-sU-d1w" id="EGt-nS-SF1"/>
+                        <outlet property="spinner" destination="fK5-rE-HhQ" id="Y66-eC-5NN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mc0-3I-P6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
